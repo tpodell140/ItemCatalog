@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Delete {{dealership.name}}?</h1>
-    <form class="" action="/dealerships/{{dealership.id}}/delete" method="post">
+    <form class="" action="{{url_for('deleteDealer', dealer_id = dealership.id)}}" method="post">
       <input type="submit" value="Confirm Delete">
     </form>
     <a href="/dealerships">Cancel</a>

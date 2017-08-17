@@ -54,13 +54,26 @@ def editDealer(dealer_id):
     if request.method == 'POST':
         dealership.name = request.form['name']
         dealership.location = request.form['location']
-        dealership.make = requst.form['make']
+        dealership.make = request.form['make']
         dealership.logo = request.form['logo']
         session.add(dealership)
         session.commit()
         return redirect(url_for('showDealers'))
     if request.method == 'GET':
         return render_template('editDealership.html', dealership = dealership)
+
+
+# Delete a Dealership
+@app.route('/dealerships/<int:dealer_id>/delete', methods = ['GET', 'POST'])
+def deleteDealer(dealer_id):
+    dealership = session.query(Dealership).filter_by(id = dealer_id).one()
+    if request.method == 'POST':
+        session.delete(dealership)
+        session.commit()
+        return redirect(url_for('showDealers'))
+    if request.method == 'GET':
+        return render_template('deleteDealership.html', dealership = dealership)
+
 
 # Inventory of a specific dealership
 @app.route('/dealerships/<int:dealer_id>/cars')

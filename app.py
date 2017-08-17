@@ -49,7 +49,7 @@ def addDealer():
 
 
 # Inventory of a specific dealership
-@app.route('/dealerships/<int:dealer_id>')
+@app.route('/dealerships/<int:dealer_id>/cars')
 def displayInventory(dealer_id):
     return "Page for Dealer with ID# {}".format(dealer_id)
 

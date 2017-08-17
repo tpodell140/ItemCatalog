@@ -1,6 +1,6 @@
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, string
+from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
@@ -12,7 +12,7 @@ class Dealership(Base):
 
     name = Column(String(100), nullable = False)
     location = Column(String(250), nullable = False)
-    image = Column(String(250))
+    logo = Column(String(250))
     make = Column(String(50), nullable = False)
     id = Column(Integer, primary_key = True)
 

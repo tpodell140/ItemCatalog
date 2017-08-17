@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dealership Listing</title>
+  </head>
+  <body>
+    <h1>Dealerships</h1>
+    <br>
+
+    {% for dealership in dealerships %}
+    <div class="dealership-display">
+      <a href="/dealerships/{{dealership.id}}">
+        <img src="{{dealership.logo}}" height = "50" alt="Dealership logo">
+        <p style = "fontweight:bold"><strong>{{dealership.name}} </strong> {{dealership.location}}</p>
+      </a>
+    </div>
+    {% endfor %}
+  </body>
+</html>

@@ -16,11 +16,36 @@ from flask import make_response
 import requests
 
 
+# Connect to database and create session
+engine = create_engine('sqlite:///dealerinventory.db')
+Base.metadata.bind = engine
+
+DBSession = sessionmaker(bind = engine)
+session = DBSession()
+
+
 # Main inventory listing
 @app.route('/')
 @app.route('/dealerships')
 def showDealers():
-    return "Dealership Listing here"
+    dealerships = session.query(Dealership).all()
+    return render_template('dealerships.html', dealerships = dealerships)
+
+
+# Add a dealership
+@app.route('/dealerships/new', methods = ['GET', 'POST'])
+def addDealer():
+    if request.method == 'POST':
+        logo = request.form['logo']
+        if not logo:
+            logo = 'http://luxmimotorssirsa.com/wp-content/plugins/wp-car-manager/assets/images/placeholder-single.png'
+        dealership = Dealership(name = request.form['name'], location = request.form['location'], make = request.form['make'], logo= logo)
+        session.add(dealership)
+        session.commit()
+        return redirect(url_for('showDealers'))
+    if request.method == 'GET':
+        return render_template('newDealership.html')
+
 
 
 # Inventory of a specific dealership

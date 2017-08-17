@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit {{dealership.name}}</title>
+  </head>
+  <body>
+      <h1>Edit {{dealership.name}}</h1>
+      <form class="" action="/dealerships/{{dealership.id}}/edit" method="post">
+        <p>Dealership Name: </p><input type="text" name="name" value="{{dealership.name}}">
+        <p>Dealership Address: </p><input type="text" name="location" value="{{dealership.location}}">
+        <p>Make of Car Sold: </p><input type="text" name="make" value="{{dealership.make}}">
+        <p>URL for Dealership Logo: </p> <input type="text" name="logo" value = "{{dealership.logo}}"placeholder="Optional">
+        <input type="submit"  value="Submit">
+      </form>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dealer Inventory</title>
+  </head>
+  <body>
+    <h1>{{dealership.name}} Inventory</h1>
+    <br>
+    {% for car in inventory %}
+    <div class="car-display-group">
+      <h3><a href="{{url_for('displayCar', dealer_id = dealership.id, car_id = car.id)}}">${{car.price}}: {{car.year}} {{car.make}} {{car.model}}</a></h3>
+      <img src="{{car.image}}" height="75px" alt="Image of Car">
+    </div>
+    {% endfor %}
+    <a href="{{url_for('addCar', dealer_id = dealership.id)}}"><p>Add Car to Inventory</p></a>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add a Car To Inventory</title>
+  </head>
+  <body>
+    Add Car to Inventory at {{dealership.name}}
+    <br>
+    <form class="" action="{{url_for('addCar', dealer_id = dealership.id)}}" method="post">
+      <div class="form-item">
+        <p>Status:</p>
+        <input type="radio" name="status" value="New" checked>New
+        <input type="radio" name="status" value="CPO">CPO
+        <input type="radio" name="status" value="Used">Used
+      </div>
+      <div class="form-item">
+        <p>Year:</p>
+        <input type="text" name="year" value="">
+      </div>
+      <div class="form-item">
+        <p>Make:</p>
+        <input type="text" name="make" value="{{dealership.make}}">
+      </div>
+      <div class="form-item">
+        <p>Model:</p>
+        <input type="text" name="model" value="">
+      </div>
+
+      <div class="form-item">
+        <p>Price: $</p>
+        <input type="text" name="price" value="">
+      </div>
+      <div class="form-item">
+        <p>Mileage:</p>
+        <input type="text" name="mileage" value="">
+      </div>
+      <div class="form-item">
+        <p>Color:</p>
+        <input type="text" name="color" value="">
+      </div>
+      <div class="form-item">
+        <p>Image:</p>
+        <input type="text" name="image" placeholde="Optional">
+      </div>
+      <input type="submit" name="" value="Add Vehicle">
+
+    </form>
+  </body>
+</html>

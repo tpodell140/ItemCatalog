@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Delete Car</title>
+  </head>
+  <body>
+    <img src="{{dealership.logo}}" alt="Dealership Logo">
+
+    <h2>Delete Car #{{car.id}} From Inventory?</h2>
+    <h3>{{car.status}} {{car.year}} {{car.make}} {{car.model}}</h3>
+    <form class="" action="{{url_for('deleteCar', dealer_id = dealership.id, car_id = car.id)}}" method="post">
+      <input type="submit" name="" value="Confirm Delete">
+    </form>
+    <a href="url_for('displayInventory', dealer_id = dealership.id)">Cancel</a>
+  </body>
+</html>

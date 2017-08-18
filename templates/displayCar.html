@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Display Car</title>
+  </head>
+  <body>
+    <img class = "dealerLogo" src="{{dealership.logo}}" alt="Dealership logo">
+    <h1>{{car.year}} {{car.make}} {{car.model}}</h1>
+    <img src="{{car.image}}" alt="Image of Car">
+    <h2>${{car.price}}</h2>
+    <p>{{car.status}}, {{car.mileage}} Miles</p>
+    <a href="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}">Edit Car</a>
+    <a href="{{url_for('deleteCar', dealer_id = dealership.id, car_id = car.id)}}">Delete Car</a>
+    <a href="{{url_for('displayInventory', dealer_id = dealership.id)}}">Back to Inventory</a>
+  </body>
+</html>

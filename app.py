@@ -84,7 +84,7 @@ def displayInventory(dealer_id):
 
 
 # Add a car to inventory
-@app.route('/dealership/<int:dealer_id>/cars/addCar', methods = ['GET', 'POST'])
+@app.route('/dealerships/<int:dealer_id>/cars/addCar', methods = ['GET', 'POST'])
 def addCar(dealer_id):
     dealership = session.query(Dealership).filter_by(id = dealer_id).one()
     if request.method == 'POST':
@@ -109,11 +109,45 @@ def addCar(dealer_id):
         return render_template('addCar.html', dealership = dealership)
 
 
-
 # Information for a specific car
 @app.route('/dealerships/<int:dealer_id>/cars/<int:car_id>')
 def displayCar(dealer_id, car_id):
-    return "Page for Car # {} at Dealer # {}".format(car_id, dealer_id)
+    dealership = session.query(Dealership).filter_by(id = dealer_id).one()
+    car = session.query(Car).filter_by(id = car_id).one()
+    return render_template('displayCar.html', dealership = dealership, car = car)
+
+
+# Edit Information for a specific car
+@app.route('/dealerships/<int:dealer_id>/cars/<int:car_id>/edit', methods = ['GET', 'POST'])
+def editCar(dealer_id, car_id):
+    dealership = session.query(Dealership).filter_by(id = dealer_id).one()
+    car = session.query(Car).filter_by(id = car_id).one()
+    if request.method == 'POST':
+        car.make = request.form['make']
+        car.model = request.form['model']
+        car.year = request.form['year']
+        car.price = request.form['price']
+        car.image = request.form['image']
+        car.mileage = request.form['mileage']
+        car.color = request.form['color']
+        session.commit()
+        return redirect(url_for('displayInventory', dealer_id = dealership.id))
+    if request.method == 'GET':
+        return render_template('editCar.html', dealership = dealership, car = car)
+
+
+# Delete a car from inventory
+@app.route('/dealerships/<int:dealer_id>/cars/<int:car_id>/delete', methods = ['GET', 'POST'])
+def deleteCar(dealer_id, car_id):
+    dealership = session.query(Dealership).filter_by(id = dealer_id).one()
+    car = session.query(Car).filter_by(id = car_id).one()
+    if request.method == 'POST':
+        session.delete(car)
+        session.commit()
+        return redirect(url_for('displayInventory', dealer_id = dealership.id))
+    if request.method == 'GET':
+        return render_template('deleteCar.html', dealership = dealership, car = car)
+
 
 
 if __name__ == '__main__':

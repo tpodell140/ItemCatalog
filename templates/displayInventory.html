@@ -9,10 +9,13 @@
     <br>
     {% for car in inventory %}
     <div class="car-display-group">
-      <h3><a href="{{url_for('displayCar', dealer_id = dealership.id, car_id = car.id)}}">${{car.price}}: {{car.year}} {{car.make}} {{car.model}}</a></h3>
+      <h3><a href="{{url_for('displayCar', dealer_id = dealership.id, car_id = car.id)}}">${{car.price}}: {{car.status}} {{car.year}} {{car.make}} {{car.model}}</a></h3>
       <img src="{{car.image}}" height="75px" alt="Image of Car">
+      <a href="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}">Edit Car</a>
+      <a href="{{url_for('deleteCar', dealer_id = dealership.id, car_id = car.id)}}">Delete Car</a>
     </div>
     {% endfor %}
     <a href="{{url_for('addCar', dealer_id = dealership.id)}}"><p>Add Car to Inventory</p></a>
+    <a href="{{url_for('showDealers')}}">Show All Dealerships</a>
   </body>
 </html>

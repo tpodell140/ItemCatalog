@@ -5,6 +5,7 @@
     <title>Edit Car</title>
   </head>
   <body>
+    {% include "header.html" %}
     <h1>Edit Car</h1>
     <form class="" action="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}" method="post">
       <div class="form-item">

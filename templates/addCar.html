@@ -5,6 +5,7 @@
     <title>Add a Car To Inventory</title>
   </head>
   <body>
+    {% include "header.html" %}
     Add Car to Inventory at {{dealership.name}}
     <br>
     <form class="" action="{{url_for('addCar', dealer_id = dealership.id)}}" method="post">

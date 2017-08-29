@@ -5,6 +5,7 @@
     <title>Display Car</title>
   </head>
   <body>
+    {% include "header.html" %}
     <img class = "dealerLogo" src="{{dealership.logo}}" alt="Dealership logo">
     <h1>{{car.year}} {{car.make}} {{car.model}}</h1>
     <img src="{{car.image}}" alt="Image of Car">

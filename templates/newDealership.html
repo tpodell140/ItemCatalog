@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% include "head_tags.html" %}
     <meta charset="utf-8">
     <title>Add a Dealership</title>
   </head>
   <body>
     {% include "header.html" %}
-    <h1>Add a Dealership</h1>
-    <form class="" action="/dealerships/new" method="post">
-      <p>Dealership Name: </p><input type="text" name="name" value="">
-      <p>Dealership Address: </p><input type="text" name="location" value="">
-      <p>Make of Car Sold: </p><input type="text" name="make" value="">
-      <p>URL for Dealership Logo: </p><input type="text" name="logo" placeholder="Optional">
-      <input type="submit"  value="Submit">
-    </form>
+    <br>
+    <main>
+      <br>
+
+      <h1>Add a Dealership</h1>
+      <form class="" action="/dealerships/new" method="post">
+        <p>Dealership Name: </p><input type="text" name="name" value="">
+        <p>Dealership Address: </p><input type="text" name="location" value="">
+        <p>Make of Car Sold: </p><input type="text" name="make" value="">
+        <p>URL for Dealership Logo: </p><input type="text" name="logo" placeholder="Optional">
+        <input type="submit"  value="Submit">
+      </form>
+    </main>
   </body>
 </html>

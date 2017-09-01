@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% include "head_tags.html" %}
     <meta charset="utf-8">
     <title>Edit {{dealership.name}}</title>
   </head>
   <body>
     {% include "header.html" %}
+    <br>
+    <main>
+
+
       <h1>Edit {{dealership.name}}</h1>
       <form class="" action="{{url_for('editDealer', dealer_id = dealership.id)}}" method="post">
         <p>Dealership Name: </p><input type="text" name="name" value="{{dealership.name}}">
@@ -15,5 +20,6 @@
         <input type="submit"  value="Submit">
       </form>
       <a href="/dealerships">Cancel</a>
+    </main>  
   </body>
 </html>

@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% include "head_tags.html" %}
     <meta charset="utf-8">
     <title>Delete Dealership</title>
   </head>
   <body>
     {% include "header.html" %}
-    <h1>Delete {{dealership.name}}?</h1>
-    <form class="" action="{{url_for('deleteDealer', dealer_id = dealership.id)}}" method="post">
-      <input type="submit" value="Confirm Delete">
-    </form>
-    <a href="/dealerships">Cancel</a>
+    <br>
+    <main>
+      <br>
+    
+      <h1>Delete {{dealership.name}}?</h1>
+      <form class="" action="{{url_for('deleteDealer', dealer_id = dealership.id)}}" method="post">
+        <input type="submit" value="Confirm Delete">
+      </form>
+      <a href="/dealerships">Cancel</a>
+    </main>
   </body>
 </html>

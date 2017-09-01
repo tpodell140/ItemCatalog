@@ -1,0 +1,46 @@
+body {
+  background-color: navy;
+  font-family: 'Oswald', sans-serif;
+}
+
+main {
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  width: 95%;
+  border: 2px solid white;
+  border-radius: 50px;
+  color: white;
+}
+
+p, a, h1 {
+  color: white;
+}
+
+.show-all-header {
+  font-size: 3em;
+}
+
+.dealership-display {
+  padding: 10px;
+
+  /*background-color: #D3D3D3;*/
+}
+
+.main-header, h2 {
+  color: white;
+  text-align: center;
+  margin: auto;
+}
+
+
+.form-item {
+  width: 100%;
+  display: inline;
+}
+
+@media screen and (min-width: 600px) {
+  main {
+    width: 80%;
+  }
+}

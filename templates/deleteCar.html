@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% include "head_tags.html" %}
     <meta charset="utf-8">
     <title>Delete Car</title>
   </head>
   <body>
     {% include "header.html" %}
+    <br>
+    <main>
+    <br>  
+
     <img src="{{dealership.logo}}" alt="Dealership Logo">
 
     <h2>Delete Car #{{car.id}} From Inventory?</h2>
@@ -14,5 +19,6 @@
       <input type="submit" name="" value="Confirm Delete">
     </form>
     <a href="url_for('displayInventory', dealer_id = dealership.id)">Cancel</a>
+    </main>
   </body>
 </html>

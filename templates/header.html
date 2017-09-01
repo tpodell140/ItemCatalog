@@ -1,5 +1,16 @@
 <div class="main-header">
-  <a class = "title-link" href="{{url_for('showDealers')}}">
-    <h3>Show All Dealerships</h3>
-  </a>
+  <div class="header-text">
+    <!-- <a class = "title-link" href="{{url_for('showDealers')}}">
+      <h3 class = 'show-all-header'>Show All Dealerships</h3>
+    </a> -->
+    <h1>Dealership Manager</h1>
+  </div>
+  <div class="login-links">
+    {% if 'username' not in session %}
+      <!-- <a href="{{url_for('showLogin')}}">Click Here to Log in</a> -->
+      {% include "login.html" %}
+    {% else %}
+      <a href="{{url_for('gdisconnect')}}">Log out</a>
+    {% endif %}
+  </div>
 </div>

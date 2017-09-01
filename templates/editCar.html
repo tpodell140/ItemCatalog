@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% include "head_tags.html" %}
     <meta charset="utf-8">
     <title>Edit Car</title>
   </head>
   <body>
     {% include "header.html" %}
-    <h1>Edit Car</h1>
-    <form class="" action="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}" method="post">
-      <div class="form-item">
-        <p>Year:</p>
-        <input type="text" name="year" value="{{car.year}}">
-      </div>
-      <div class="form-item">
-        <p>Make:</p>
-        <input type="text" name="make" value="{{car.make}}">
-      </div>
-      <div class="form-item">
-        <p>Model:</p>
-        <input type="text" name="model" value="{{car.model}}">
-      </div>
+    <br>
+    <main>
+        <br>
 
-      <div class="form-item">
-        <p>Price: $</p>
-        <input type="text" name="price" value="{{car.price}}">
-      </div>
-      <div class="form-item">
-        <p>Mileage:</p>
-        <input type="text" name="mileage" value="{{car.mileage}}">
-      </div>
-      <div class="form-item">
-        <p>Color:</p>
-        <input type="text" name="color" value="{{car.color}}">
-      </div>
-      <div class="form-item">
-        <p>Image:</p>
-        <input type="text" name="image" value="{{car.image}}">
-      </div>
-      <input type="submit" name="" value="Submit Changes">
-      <a href="{{url_for('displayInventory', dealer_id = dealership.id)}}">Cancel</a>
-    </form>
+        <h1>Edit Car</h1>
+        <form class="" action="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}" method="post">
+          <div class="form-item">
+            <p>Year:</p>
+            <input type="text" name="year" value="{{car.year}}">
+          </div>
+          <div class="form-item">
+            <p>Make:</p>
+            <input type="text" name="make" value="{{car.make}}">
+          </div>
+          <div class="form-item">
+            <p>Model:</p>
+            <input type="text" name="model" value="{{car.model}}">
+          </div>
+
+          <div class="form-item">
+            <p>Price: $</p>
+            <input type="text" name="price" value="{{car.price}}">
+          </div>
+          <div class="form-item">
+            <p>Mileage:</p>
+            <input type="text" name="mileage" value="{{car.mileage}}">
+          </div>
+          <div class="form-item">
+            <p>Color:</p>
+            <input type="text" name="color" value="{{car.color}}">
+          </div>
+          <div class="form-item">
+            <p>Image:</p>
+            <input type="text" name="image" value="{{car.image}}">
+          </div>
+          <input type="submit" name="" value="Submit Changes">
+          <a href="{{url_for('displayInventory', dealer_id = dealership.id)}}">Cancel</a>
+        </form>
+    </main>
   </body>
 </html>

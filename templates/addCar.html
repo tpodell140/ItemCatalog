@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    {% include "head_tags.html" %}
     <meta charset="utf-8">
     <title>Add a Car To Inventory</title>
   </head>
   <body>
     {% include "header.html" %}
-    Add Car to Inventory at {{dealership.name}}
     <br>
+    <main>
+
+
+    <br>
+
+    Add Car to Inventory at {{dealership.name}}
     <form class="" action="{{url_for('addCar', dealer_id = dealership.id)}}" method="post">
       <div class="form-item">
         <p>Status:</p>
@@ -48,5 +54,6 @@
 
     </form>
     <a href="{{url_for('displayInventory', dealer_id = dealership.id)}}">Back to Inventory</a>
+    </main>
   </body>
 </html>

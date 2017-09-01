@@ -137,6 +137,7 @@ def gdisconnect():
     print ('result is ')
     print (result)
     if result['status'] == '200':
+        # del login_session['username']
         del login_session['access_token']
         del login_session['gplus_id']
         del login_session['username']
@@ -144,7 +145,8 @@ def gdisconnect():
         del login_session['picture']
         response = make_response(json.dumps('Successfully disconnected.'), 200)
         response.headers['Content-Type'] = 'application/json'
-        return response
+        flash("You have successfullly been logged out.")
+        return redirect(url_for('showDealers'))
     else:
         response = make_response(json.dumps('Failed to revoke token for given user'), 400)
         response.headers['Content-Type'] = 'application/json'
@@ -217,7 +219,7 @@ def addCar(dealer_id):
     if request.method == 'POST':
         image = request.form['image']
         if not image:
-            image = 'http://luxmimotorssirsa.com/wp-content/plugins/wp-car-manager/assets/images/placeholder-single.png'
+            image = 'http://myclassicgarage.com/assets/image_placeholder_low_res.png'
         newCar = Car(
                     status = request.form['status'],
                     make = request.form['make'],

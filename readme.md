@@ -1,6 +1,6 @@
 # Dealership Manager App
 ---
-# About
+## About
 
 Dealership Manager is a tool to manage inventory of cars at multiple dealerships. The main page is a list of all dealerships contained within the database, and clicking on each dealership will show a listing of cars for sale at those dealerships.
 
@@ -8,7 +8,7 @@ Authenticated users have the ability to add/edit/delete cars from inventory; una
 
 Dealership Manager is written in Python 3.
 
-# Getting Started
+## Getting Started
 
 The repository contains a demo database that already contains sample dealerships and cars in inventory. To start from scratch, simply delete or rename the `dealerinventory.db` file before running the program.
 
@@ -22,12 +22,12 @@ The server will start and be accessible from `http://localhost:5000`.
 
 Note that you must authenticate before being able to modify or add to the database. This is especially important to remember for users starting with an empty database as no functionality will be accessible without logging in. See "Authentication" below for more details.
 
-# Authentication
+## Authentication
 Authentication is done using Google Accounts. Users who are not logged in will see a "Sign in with Google" button at the top of every page. Links to manage inventory are not accessible without a successful log-in.
 
 Users who have successfully logged in will see log out buttons at the top of every page.
 
-# Inventory Management
+## Inventory Management
 
 Once authenticated, users may create dealerships on the main page. Once created, the user can edit and delete the dealership from the main page as well.
 
@@ -35,7 +35,7 @@ Clicking on a dealership will show the inventory at that dealership. Clicking on
 
 For both dealerships and cars, a generic placeholder image will be used if the user does not provide an image at the time of creation.
 
-# JSON endpoints
+## JSON endpoints
 Information contained in the database may be accessed in a convenient JSON format by using the following endpoints:
 
 ### Listing of all Dealerships in the Database:

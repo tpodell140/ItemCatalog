@@ -113,7 +113,7 @@ def gconnect():
     output += '!</h1>'
     output += '<img src="'
     output += login_session['picture']
-    output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
+    output += ' " style = "width: 75px; height: 75px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
     flash("you are now logged in as %s" % login_session['username'])
     print ("done!")
     return output
@@ -157,8 +157,9 @@ def gdisconnect():
 @app.route('/')
 @app.route('/dealerships')
 def showDealers():
+    state = checkState()
     dealerships = session.query(Dealership).all()
-    return render_template('dealerships.html', dealerships = dealerships)
+    return render_template('dealerships.html', dealerships = dealerships, STATE=state)
 
 
 # Add a dealership
@@ -207,9 +208,10 @@ def deleteDealer(dealer_id):
 # Inventory of a specific dealership
 @app.route('/dealerships/<int:dealer_id>/cars')
 def displayInventory(dealer_id):
+    state = checkState()
     dealership = session.query(Dealership).filter_by(id = dealer_id).one()
     inventory = session.query(Car).filter_by(dealer_id = dealer_id)
-    return render_template('displayInventory.html', dealership = dealership, inventory = inventory)
+    return render_template('displayInventory.html', dealership = dealership, inventory = inventory, STATE=state)
 
 
 # Add a car to inventory
@@ -241,9 +243,10 @@ def addCar(dealer_id):
 # Information for a specific car
 @app.route('/dealerships/<int:dealer_id>/cars/<int:car_id>')
 def displayCar(dealer_id, car_id):
+    state = checkState()
     dealership = session.query(Dealership).filter_by(id = dealer_id).one()
     car = session.query(Car).filter_by(id = car_id).one()
-    return render_template('displayCar.html', dealership = dealership, car = car)
+    return render_template('displayCar.html', dealership = dealership, car = car, STATE=state)
 
 
 # Edit Information for a specific car
@@ -295,6 +298,17 @@ def dealerInventoryJSON(dealer_id):
 def carJSON(dealer_id, car_id):
     car = session.query(Car).filter_by(id = car_id).one()
     return jsonify(car = car.serialize)
+
+
+def checkState():
+    # Get state if user is already logged in, otherwise create state
+    if 'username' in login_session:
+        state = login_session['state']
+    else:
+        state = ''.join(random.choice(string.ascii_uppercase + string.
+            digits) for x in range(32))
+        login_session['state'] = state
+    return state
 
 
 def getUserID(email):

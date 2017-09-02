@@ -14,7 +14,7 @@
       <img class = "dealerLogo" src="{{dealership.logo}}" alt="Dealership logo">
       </a>
       <h1>{{car.year}} {{car.make}} {{car.model}}</h1>
-      <img src="{{car.image}}" alt="Image of Car">
+      <img class="car-image-full" src="{{car.image}}" alt="Image of Car">
       <h2>${{car.price}}</h2>
       <p>{{car.status}}, {{car.mileage}} Miles</p>
       <a class="management-link" href="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}">Edit Car</a>
@@ -22,5 +22,10 @@
       <br>
       <a href="{{url_for('displayInventory', dealer_id = dealership.id)}}">Back to Inventory</a>
     </main>
+    {% if 'username' not in session %}
+      <script type="text/javascript">
+        $(".management-link").css('display', 'none');
+      </script>
+    {% endif %}
   </body>
 </html>

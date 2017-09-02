@@ -71,6 +71,21 @@ label {
   padding: 0 5px 0 5px;
 }
 
+.flash {
+  color: #FFD500;
+  text-align: center;
+
+}
+
+.flash ul li {
+    list-style: none;
+}
+
+
+.car-image-full {
+  width: 90%;
+}
+
 
 #signinButton {
   background-image: url('btn_google_signin_light_normal_web.png');

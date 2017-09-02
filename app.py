@@ -288,16 +288,22 @@ def dealershipJSON():
     return jsonify(dealerships = [dealer.serialize for dealer in dealerships])
 
 
-@app.route('/dealerships/<int:dealer_id>/cars/JSON')
+@app.route('/dealerships/<int:dealer_id>/JSON')
 def dealerInventoryJSON(dealer_id):
-    cars = session.query(Car).filter_by(dealer_id = dealer_id).all()
-    return jsonify(cars = [car.serialize for car in cars])
+    try:
+        cars = session.query(Car).filter_by(dealer_id = dealer_id).all()
+        return jsonify(cars = [car.serialize for car in cars])
+    except:
+        return "No result found"
 
 
-@app.route('/dealerships/<int:dealer_id>/cars/<int:car_id>/JSON')
-def carJSON(dealer_id, car_id):
-    car = session.query(Car).filter_by(id = car_id).one()
-    return jsonify(car = car.serialize)
+@app.route('/cars/<int:car_id>/JSON')
+def carJSON(car_id):
+    try:
+        car = session.query(Car).filter_by(id = car_id).one()
+        return jsonify(car = car.serialize)
+    except:
+        return "No result found"
 
 
 def checkState():

@@ -3,7 +3,9 @@
     <!-- <a class = "title-link" href="{{url_for('showDealers')}}">
       <h3 class = 'show-all-header'>Show All Dealerships</h3>
     </a> -->
-    <h1>Dealership Manager</h1>
+    <a href="{{url_for('showDealers')}}">
+      <h1 id ="main-title-text">Dealership Manager</h1>
+    </a>
   </div>
   <div class="login-links">
     {% if 'username' not in session %}

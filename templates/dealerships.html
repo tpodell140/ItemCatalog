@@ -7,8 +7,8 @@
   <body>
     {% include "header.html" %}
     <br>
-    <h2>All Dealerships</h12
-    <div class = 'flash'>
+    <h2>All Dealerships</h2>
+    <div class = "flash">
 		      {% with messages = get_flashed_messages() %}
       {% if messages %}
 
@@ -22,7 +22,7 @@
 
   </div>
   <main>
-
+  <br>
 
     {% for dealership in dealerships %}
     <div class="dealership-display">
@@ -30,15 +30,15 @@
         <img src="{{dealership.logo}}" height = "50" alt="Dealership logo">
         <p><strong>{{dealership.name}} </strong> {{dealership.location}}</p>
       </a>
-      <a href="{{url_for('editDealer', dealer_id = dealership.id)}}">Edit</a>
-      <a href="{{url_for('deleteDealer', dealer_id = dealership.id)}}">Delete</a>
+      <a class="management-link" href="{{url_for('editDealer', dealer_id = dealership.id)}}">Edit    </a>
+      <a class="management-link" href="{{url_for('deleteDealer', dealer_id = dealership.id)}}">Delete</a>
     </div>
     <br>
-    <br>
+
     {% endfor %}
     <br>
     <br>
-    <a href="{{url_for('addDealer')}}">Add Dealership</a>
+    <a class="management-link" class="management-link" href="{{url_for('addDealer')}}">Add Dealership</a>
 
   </main>
   </body>

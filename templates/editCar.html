@@ -12,33 +12,37 @@
         <br>
 
         <h1>Edit Car</h1>
-        <form class="" action="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}" method="post">
-          <div class="form-item">
-            <p>Year:</p>
-            <input type="text" name="year" value="{{car.year}}">
+        <form class="container" action="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}" method="post">
+          <div class="row">
+
+              <p>Year:</p>
+
+
+              <input type="text" name="year" value="{{car.year}}">
+            
           </div>
-          <div class="form-item">
+          <div class="row">
             <p>Make:</p>
             <input type="text" name="make" value="{{car.make}}">
           </div>
-          <div class="form-item">
+          <div class="row">
             <p>Model:</p>
             <input type="text" name="model" value="{{car.model}}">
           </div>
 
-          <div class="form-item">
+          <div class="row">
             <p>Price: $</p>
             <input type="text" name="price" value="{{car.price}}">
           </div>
-          <div class="form-item">
+          <div class="row">
             <p>Mileage:</p>
             <input type="text" name="mileage" value="{{car.mileage}}">
           </div>
-          <div class="form-item">
+          <div class="row">
             <p>Color:</p>
             <input type="text" name="color" value="{{car.color}}">
           </div>
-          <div class="form-item">
+          <div class="row">
             <p>Image:</p>
             <input type="text" name="image" value="{{car.image}}">
           </div>

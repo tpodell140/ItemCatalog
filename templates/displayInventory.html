@@ -17,13 +17,18 @@
       <br>
       {% for car in inventory %}
       <div class="car-display-group">
-        <h3><a href="{{url_for('displayCar', dealer_id = dealership.id, car_id = car.id)}}">${{car.price}}: {{car.status}} {{car.year}} {{car.make}} {{car.model}}</a></h3>
+        <a href="{{url_for('displayCar', dealer_id = dealership.id, car_id = car.id)}}"><h3>${{car.price}}: {{car.status}} {{car.year}} {{car.make}} {{car.model}}</h3>
         <img src="{{car.image}}" height="125px" alt="Image of Car">
-        <a href="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}">Edit Car</a>
-        <a href="{{url_for('deleteCar', dealer_id = dealership.id, car_id = car.id)}}">Delete Car</a>
+        </a>
+        <br>
+        <a class="management-link" href="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}">Edit Car</a>
+        <a class="management-link" href="{{url_for('deleteCar', dealer_id = dealership.id, car_id = car.id)}}">Delete Car</a>
       </div>
       {% endfor %}
-      <a href="{{url_for('addCar', dealer_id = dealership.id)}}"><p>Add Car to Inventory</p></a>
+      <br>
+      <a class="management-link" href="{{url_for('addCar', dealer_id = dealership.id)}}">Add Car to Inventory</a>
+      <br>
+      <br>
       <a href="{{url_for('showDealers')}}">Show All Dealerships</a>
     </main>
   </body>

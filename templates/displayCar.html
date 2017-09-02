@@ -17,8 +17,9 @@
       <img src="{{car.image}}" alt="Image of Car">
       <h2>${{car.price}}</h2>
       <p>{{car.status}}, {{car.mileage}} Miles</p>
-      <a href="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}">Edit Car</a>
-      <a href="{{url_for('deleteCar', dealer_id = dealership.id, car_id = car.id)}}">Delete Car</a>
+      <a class="management-link" href="{{url_for('editCar', dealer_id = dealership.id, car_id = car.id)}}">Edit Car</a>
+      <a class="management-link" href="{{url_for('deleteCar', dealer_id = dealership.id, car_id = car.id)}}">Delete Car</a>
+      <br>
       <a href="{{url_for('displayInventory', dealer_id = dealership.id)}}">Back to Inventory</a>
     </main>
   </body>

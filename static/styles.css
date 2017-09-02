@@ -11,9 +11,27 @@ main {
   border: 2px solid white;
   border-radius: 50px;
   color: white;
+  padding-bottom: 10px;
 }
 
 p, a, h1 {
+  color: white;
+}
+
+p, a {
+  font-size: large;
+}
+
+form {
+  color: black;
+}
+
+a:hover {
+  color: #FFD500;
+}
+
+
+label {
   color: white;
 }
 
@@ -37,6 +55,29 @@ p, a, h1 {
 .form-item {
   width: 100%;
   display: inline;
+}
+
+#main-title-text {
+  color: #FFD500;
+  font-size: 3em;
+}
+
+.top-padding {
+  padding-top: 15px;
+}
+
+.management-link {
+  color: red;
+  padding: 0 5px 0 5px;
+}
+
+
+#signinButton {
+  background-image: url('btn_google_signin_light_normal_web.png');
+  background-size: 191px 46px;
+  background-position: center;
+  height: 40px;
+  width: 180px;
 }
 
 @media screen and (min-width: 600px) {
